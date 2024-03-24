@@ -5,9 +5,7 @@ springdoc:
     operations-sorter: alpha
 spring:
   mail:
-    host: smtp.yeah.net
-    username: sunjunchen@yeah.net
-    password: IXRZLQJEDVLEHWZF
+
   rabbitmq:
     addresses: localhost
     username: guest

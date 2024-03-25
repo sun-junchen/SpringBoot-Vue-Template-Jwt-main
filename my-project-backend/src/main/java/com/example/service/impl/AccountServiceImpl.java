@@ -1,5 +1,6 @@
 package com.example.service.impl;
 
+import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.entity.dto.Account;
@@ -141,6 +142,16 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
         if(code == null) return "请先获取验证码";
         if(!code.equals(info.getCode())) return "验证码错误，请重新输入";
         return null;
+    }
+
+    /**
+     * 根据id 获取账户
+     * @param id
+     * @return
+     */
+    @Override
+    public Account findAccountById(Integer id) {
+        return this.lambdaQuery().eq(ObjectUtils.isNotEmpty(id),Account::getId,id).one();
     }
 
     /**

@@ -5,17 +5,26 @@ springdoc:
     operations-sorter: alpha
 spring:
   mail:
-
+    host: smtp.yeah.net
+    username: sunjunchen@yeah.net
+    password: IXRZLQJEDVLEHWZF
   rabbitmq:
-    addresses: localhost
-    username: guest
-    password: guest
+    host: 1.92.120.130
+    username: admin
+    password: admin
     virtual-host: /
   datasource:
-    url: jdbc:mysql://localhost:3306/test
+    url: jdbc:mysql://1.92.120.130:3306/study
     username: root
-    password: 123456
+    password: JayChou257248J
     driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      # Hikari连接池相关配置
+      minimum-idle: 5
+      maximum-pool-size: 10
+      idle-timeout: 30000
+      connection-timeout: 30000
+      pool-name: MyHikariPool
   security:
     jwt:
       key: 'abcdefghijklmn'
@@ -37,3 +46,25 @@ spring:
       origin: '*'
       credentials: false
       methods: '*'
+  data:
+    redis:
+      # Redis服务器地址
+      host: 1.92.120.130
+      # Redis服务器端口号
+      port: 6379
+      # 使用的数据库索引，默认是0
+      database: 0
+      # 连接超时时间
+      timeout: 1800000
+      # 设置密码
+      password: JayChou257248J
+      lettuce:
+        pool:
+          # 最大阻塞等待时间，负数表示没有限制
+          max-wait: -1
+          # 连接池中的最大空闲连接
+          max-idle: 5
+          # 连接池中的最小空闲连接
+          min-idle: 0
+          # 连接池中最大连接数，负数表示没有限制
+          max-active: 20
